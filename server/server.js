@@ -14,6 +14,21 @@ io.on('connection', (socket) => {
     socket.on('disconnect', () => {
         console.log('Disconneccted from server')
     });
+    socket.emit('newEmail', {
+        from: "alpitanand20@gmail.com",
+        text: "Hey prachee i will be back home soon",
+        number: 9778260806,
+        createdAt: Math.floor(Date.now() / 1000)
+    });
+    socket.emit('newMessage',{
+        from: "Alpit anand",
+        message : "This is the new message generated",
+        timestamp : Math.floor(Date.now() / 1000)
+    })
+    socket.on('createEmail', (newEmail) => {
+        console.log(newEmail);
+    });
+
 })
 
 server.listen(3000, () => {
