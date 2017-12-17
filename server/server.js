@@ -24,11 +24,13 @@ io.on('connection', (socket) => {
         from: "Alpit anand",
         message : "This is the new message generated",
         timestamp : Math.floor(Date.now() / 1000)
-    })
+    });
     socket.on('createEmail', (newEmail) => {
         console.log(newEmail);
     });
-
+    socket.on('createMessage',(message)=>{
+        console.log("create message",message);
+    });
 })
 
 server.listen(3000, () => {
