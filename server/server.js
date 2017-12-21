@@ -20,16 +20,17 @@ io.on('connection', (socket) => {
         number: 9778260806,
         createdAt: Math.floor(Date.now() / 1000)
     });
-    socket.emit('newMessage',{
-        from: "Alpit anand",
-        message : "This is the new message generated",
-        timestamp : Math.floor(Date.now() / 1000)
-    });
+     
     socket.on('createEmail', (newEmail) => {
         console.log(newEmail);
     });
     socket.on('createMessage',(message)=>{
         console.log("create message",message);
+        io.emit('newMessage',{
+            from:message.from,
+            text:message.text,
+            createdAt:Math.floor(Date.now() / 1000)
+        })
     });
 })
 
