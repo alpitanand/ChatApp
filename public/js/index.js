@@ -31,4 +31,5 @@ socket.emit('createMessage',{
         console.log(data);
     })
     
+    document.querySelector('.message').value= "";
 });
