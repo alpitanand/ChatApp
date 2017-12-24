@@ -17,6 +17,7 @@ io.on('connection', (socket) => {
     socket.broadcast.emit('newMessage',generateMessage('Admin','New User connected'));
     
     socket.on('disconnect', () => {
+        socket.broadcast.emit('newMessage',generateMessage('Admin','User disconnected'));
         console.log('Disconneccted from server')
     });
    
