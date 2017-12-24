@@ -20,9 +20,10 @@ io.on('connection', (socket) => {
         console.log('Disconneccted from server')
     });
    
-    socket.on('createMessage',(message)=>{
+    socket.on('createMessage',(message,callback)=>{
         console.log("create message",message);
         io.emit('newMessage',generateMessage(message.from, message.text));
+        callback('This is from the server');
         // socket.broadcast.emit('newMessage',{
         //     from:message.from,
         //     text:message.text,
@@ -30,7 +31,8 @@ io.on('connection', (socket) => {
         // })
     });
 })
-
+ 
 server.listen(port, () => {
     console.log(`Server is up on ${port}`);
 })
+
