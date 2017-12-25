@@ -1,7 +1,7 @@
 var socket = io();
 socket.on('connect', function () {
     console.log('Connected to server');
-    
+
 })
 socket.on('disconnect', function () {
     console.log('Disconneccted from server');
@@ -9,27 +9,45 @@ socket.on('disconnect', function () {
 
 socket.on('newEmail', function (email) {
     console.log(email);
-    
+
 })
 
-socket.on('newMessage',function(message){
+socket.on('newMessage', function (message) {
     console.log(message);
     var html = '<li>%item%</li>'
     var newHtml = html.replace('%item%', `${message.from}: ${message.text}`)
-    
-    document.getElementById('text_messages').insertAdjacentHTML('beforeend',newHtml);
+
+    document.getElementById('text_messages').insertAdjacentHTML('beforeend', newHtml);
 })
 
 
-document.getElementById('message-form').addEventListener('submit',function(e){
-e.preventDefault();
+document.getElementById('message-form').addEventListener('submit', function (e) {
+    e.preventDefault();
 
-socket.emit('createMessage',{
-    from:'User',
-    text : document.querySelector('.message').value
-    },function(data){
+    socket.emit('createMessage', {
+        from: 'User',
+        text: document.querySelector('.message').value
+    }, function (data) {
         console.log(data);
     })
-    
-    document.querySelector('.message').value= "";
+
+    document.querySelector('.message').value = "";
 });
+
+var locationButton = document.getElementById('send-location');
+
+locationButton.addEventListener('click', function () {
+    if (!navigator.geolocation) {
+        return alert('Geolocation not supported by your browser');
+    }
+    navigator.geolocation.getCurrentPosition(function (position) {
+        console.log(position);
+        socket.emit('createLocationMessage',{
+            latitude: position.coords.latitude,
+            longitude : position.coords.longitude
+        })
+
+    }, function () {
+        alert('Unable to share location');
+    })
+})
