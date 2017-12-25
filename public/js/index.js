@@ -20,6 +20,12 @@ socket.on('newMessage', function (message) {
     document.getElementById('text_messages').insertAdjacentHTML('beforeend', newHtml);
 })
 
+socket.on('newLocationMessage', function(message){
+    var html = '<li>%item2%<a href = "%item%" target = "_blank"> My location</a></li>'
+    var newHtml = html.replace('%item%', `${message.url}`)
+    var newHtml2 = newHtml.replace('%item2%', `${message.from}: `)
+    document.getElementById('text_messages').insertAdjacentHTML('beforeend', newHtml2);
+})
 
 document.getElementById('message-form').addEventListener('submit', function (e) {
     e.preventDefault();
