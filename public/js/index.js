@@ -17,17 +17,17 @@ socket.on('newMessage', function (message) {
     var html = '<li>%item%</li>'
     var newHtml = html.replace('%item%', `${message.from}: ${message.text}`)
 
-    document.getElementById('text_messages').insertAdjacentHTML('beforeend', newHtml);
+    document.getElementById('text-messages').insertAdjacentHTML('beforeend', newHtml);
 })
 
 socket.on('newLocationMessage', function(message){
     var html = '<li>%item2%<a href = "%item%" target = "_blank"> My location</a></li>'
     var newHtml = html.replace('%item%', `${message.url}`)
     var newHtml2 = newHtml.replace('%item2%', `${message.from}: `)
-    document.getElementById('text_messages').insertAdjacentHTML('beforeend', newHtml2);
+    document.getElementById('text-messages').insertAdjacentHTML('beforeend', newHtml2);
 })
 
-document.getElementById('message-form').addEventListener('submit', function (e) {
+document.getElementById('send-text').addEventListener('click', function (e) {
     e.preventDefault();
 
     socket.emit('createMessage', {
@@ -42,7 +42,8 @@ document.getElementById('message-form').addEventListener('submit', function (e) 
 
 var locationButton = document.getElementById('send-location');
 
-locationButton.addEventListener('click', function () {
+locationButton.addEventListener('click', function (e) {
+    e.preventDefault();
     if (!navigator.geolocation) {
         return alert('Geolocation not supported by your browser');
     }

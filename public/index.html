@@ -5,19 +5,34 @@
     <meta charset="utf-8">
     <meta lang="en">
     <link rel="stylesheet" type="text/css" href="./styles/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,300i,400" rel="stylesheet">
 </head>
 
 <body>
 
-    <p>Welcome to the chat app of alpit</p>
+    <div class="wrapper">
 
-    <ol id="text_messages"></ol>
+<div class="name-list">
+    <p>ALpit</p>
 
+</div>
+
+<div class="chatting-space">
+    <div class="text-space">    
+        <p>Welcome to the chat app of alpit</p>
+        <ol id="text-messages"></ol>
+</div>
+
+<div class=send-it>
     <form id='message-form'>
-        <input class='message' type="text" placeholder="Message">
-        <button>Send</button>
+        <input  class='message' type="text" placeholder="Message">
+        <button id="send-text">Send Text</button>
+        <button id="send-location">Send location</button>
     </form>
-    <button id="send-location">Send location</button>
+    </div>
+</div>  
+ 
+</div> 
     <script src="/socket.io/socket.io.js"></script>
     <script src="/js/index.js"></script>
 </body>
