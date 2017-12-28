@@ -13,17 +13,18 @@ socket.on('newEmail', function (email) {
 })
 
 socket.on('newMessage', function (message) {
-    console.log(message);
+    var formattedTime = moment(message.createdAt).format('h:mm a'); 
     var html = '<li>%item%</li>'
-    var newHtml = html.replace('%item%', `${message.from}: ${message.text}`)
+    var newHtml = html.replace('%item%', `${message.from} ${formattedTime}: ${message.text}`)
 
     document.getElementById('text-messages').insertAdjacentHTML('beforeend', newHtml);
 })
 
 socket.on('newLocationMessage', function(message){
+    var formattedTime = moment(message.createdAt).format('h:mm a');
     var html = '<li>%item2%<a href = "%item%" target = "_blank"> My location</a></li>'
     var newHtml = html.replace('%item%', `${message.url}`)
-    var newHtml2 = newHtml.replace('%item2%', `${message.from}: `)
+    var newHtml2 = newHtml.replace('%item2%', `${message.from} ${formattedTime}: `)
     document.getElementById('text-messages').insertAdjacentHTML('beforeend', newHtml2);
 })
 
