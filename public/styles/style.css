@@ -1,7 +1,8 @@
 * {
     margin: 0px;
     padding: 0px;
-    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
 }
 
 html {
@@ -13,8 +14,13 @@ html {
 }
 
 .wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: row;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
   
     
 }
@@ -23,15 +29,10 @@ html {
     
     width: 260px;
     height: 100vh;
-    background: -moz-linear-gradient(125deg, rgba(39, 107, 130, 1) 0%, rgba(49, 84, 129, 1) 100%);
     /* ff3.6+ */
-    background: -webkit-gradient(linear, left top, right bottom, color-stop(0%, rgba(49, 84, 129, 1)), color-stop(100%, rgba(39, 107, 130, 1)));
     /* safari4+,chrome */
-    background: -webkit-linear-gradient(125deg, rgba(39, 107, 130, 1) 0%, rgba(49, 84, 129, 1) 100%);
     /* safari5.1+,chrome10+ */
-    background: -o-linear-gradient(125deg, rgba(39, 107, 130, 1) 0%, rgba(49, 84, 129, 1) 100%);
     /* opera 11.10+ */
-    background: -ms-linear-gradient(125deg, rgba(39, 107, 130, 1) 0%, rgba(49, 84, 129, 1) 100%);
     /* ie10+ */
     background: linear-gradient(325deg, rgba(39, 107, 130, 1) 0%, rgba(49, 84, 129, 1) 100%);
     /* w3c */
@@ -45,8 +46,13 @@ html {
 .chatting-space {
     /* width: 100%;
     height: 100vh; */
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
     padding: 2px;
     height: 100vh;
     width: 100%;
@@ -69,10 +75,13 @@ html {
 
 #message-form{
     background: #e6eaee;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     padding: 10px;
     /*height: 60px;*/
-    flex-shrink: 0;
+    -ms-flex-negative: 0;
+        flex-shrink: 0;
     
 }
 #message-form .message {
@@ -86,8 +95,12 @@ html {
     margin: 0px;
     outline: none;
     font-size: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-grow: 1;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
     
 }
 
@@ -95,15 +108,10 @@ html {
 #send-location {
     padding: 12px 5px;
     border-radius: 5px;
-    background: -moz-linear-gradient(125deg, rgba(39, 107, 130, 1) 0%, rgba(49, 84, 129, 1) 100%);
     /* ff3.6+ */
-    background: -webkit-gradient(linear, left top, right bottom, color-stop(0%, rgba(49, 84, 129, 1)), color-stop(100%, rgba(39, 107, 130, 1)));
     /* safari4+,chrome */
-    background: -webkit-linear-gradient(125deg, rgba(39, 107, 130, 1) 0%, rgba(49, 84, 129, 1) 100%);
     /* safari5.1+,chrome10+ */
-    background: -o-linear-gradient(125deg, rgba(39, 107, 130, 1) 0%, rgba(49, 84, 129, 1) 100%);
     /* opera 11.10+ */
-    background: -ms-linear-gradient(125deg, rgba(39, 107, 130, 1) 0%, rgba(49, 84, 129, 1) 100%);
     /* ie10+ */
     background: linear-gradient(325deg, rgba(39, 107, 130, 1) 0%, rgba(49, 84, 129, 1) 100%);
     font-size: 15px;
@@ -134,6 +142,9 @@ ol li{
           display: none;
       }
       #message-form{
-          flex-direction: column;
+          -webkit-box-orient: vertical;
+          -webkit-box-direction: normal;
+              -ms-flex-direction: column;
+                  flex-direction: column;
       }
 }
