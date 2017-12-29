@@ -109,7 +109,20 @@ html {
     font-size: 15px;
     
 }
-
+.message_title h4{
+    display: inline-block;
+    padding-right: 5px;
+}
+.message_title span{
+    color: grey;
+    font-size: 15px;
+}
+ol li{
+    padding: 10px;
+}
+.location__body p a {
+    text-decoration: none;
+}
 #text-messages {
     list-style: none;
 }
