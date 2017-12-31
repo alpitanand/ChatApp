@@ -4,6 +4,7 @@ const socketIO = require('socket.io');
 const http = require('http');
 const express = require('express')
 const app = express();
+const {isRealString} = require('./utils/validation')
 const port = process.env.PORT || 3000;
 const {
     generateMessage,generateLocationMessage
@@ -18,6 +19,13 @@ io.on('connection', (socket) => {
     socket.emit('newMessage', generateMessage('Admin', 'Welcome to the chat App'));
     socket.emit('newMessage', generateMessage('Admin','To chat, share the link with the person you want to chat'));
     socket.broadcast.emit('newMessage', generateMessage('Admin', 'New User connected'));
+
+    socket.on('join',(params,callback)=>{
+        if(!isRealString(params.name) || !isRealString(params.room)){
+            callback('Room and name are required')
+        }
+        callback();
+    })
 
     socket.on('disconnect', () => {
         socket.broadcast.emit('newMessage', generateMessage('Admin', 'User disconnected'));

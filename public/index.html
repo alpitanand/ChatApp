@@ -1,67 +1,25 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-    <meta charset="utf-8">
-    <meta lang="en">
-    <link rel="stylesheet" type="text/css" href="./styles/style.css">
-    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,300i,400" rel="stylesheet">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
-
-<body>
-
-    <div class="wrapper">
-
-<div class="name-list">
-    <p>Alpit</p>
-</div>
-
-<div class="chatting-space">
-    <div class="text-space">    
-        <p>Welcome to the chat app of alpit</p>
-        <ol id="text-messages"></ol>
-</div>
-
-
-    <form id='message-form'>
-        <input  class='message' type="text" placeholder="Message">
-        <button id="send-text">Send Text</button>
-        <button id="send-location">Send location</button>
-    </form>
-   
-</div>  
- 
-</div> 
-
-<script id="message-template" type="text/template">
-    <li>
-        <div class = "message_title">
-        <h4>{{from}}<h4>
-            <span>{{createdAt}}</span>
-        </div>
-        <div class = "messgage__body">
-          <p>{{text}}</p>  
-        </div>
-    </li>
-</script>
-
-<script id="location-message-template" type="text/template">
-    <li>
-        <div class = "message_title">
-        <h4>{{from}}<h4>
-            <span>{{createdAt}}</span>
-        </div>
-        <div class = "location__body">
-          <p><a href = {{location}} target = "_blank"> My location</a></p>  
-        </div>
-    </li>
-</script>
-<script src="/js/libs/moment.js"></script>
-<script src="/js/libs/mustache.js"></script>
-    <script src="/socket.io/socket.io.js"></script>
-    <script src="/js/index.js"></script>
     
-</body>
+<head>
+<meta charset="utf-8">
+<title>Join | ChatApp</title>
+<link rel="stylesheet" type="text/css" href="./styles/style.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
 
+<body class="joinpage">
+        <form action="/chat.html" method="get">
+    <div class="centered-form">
+        
+        <p>Your Name</p>
+        <input  class='name' name="name" type="text" placeholder="Name">
+        <p>Room Name</p>
+        <input  class='name' name="room" type="text" placeholder="Name">
+        <button id="join">Join</button>
+    
+    </div>
+</form>
+</body>
+ 
 </html>
