@@ -72,9 +72,10 @@ socket.on('newLocationMessage', function (message) {
 
 document.getElementById('send-text').addEventListener('click', function (e) {
     e.preventDefault();
+    var params = jQuery.deparam(window.location.search);
 
     socket.emit('createMessage', {
-        from: 'User',
+        from: params.name,
         text: document.querySelector('.message').value
     }, function (data) {
         console.log(data);
@@ -82,6 +83,14 @@ document.getElementById('send-text').addEventListener('click', function (e) {
 
     document.querySelector('.message').value = "";
 });
+
+socket.on('UpdateUserList',function(users){
+        var ol = jQuery('<ol></ol>');
+        users.forEach(function(user){
+            ol.append(jQuery('<li></li>').text(user));
+        });
+        jQuery('.name-list').html(ol);
+})
 
 var locationButton = document.getElementById('send-location');
 

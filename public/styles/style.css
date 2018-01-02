@@ -132,33 +132,53 @@ ol li {
 #text-messages {
     list-style: none;
 }
-.joinpage{
+
+.joinpage {
     height: 100vh;
     border: 1px solid black;
-    display:flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     background: linear-gradient(325deg, rgba(39, 107, 130, 1) 0%, rgba(49, 84, 129, 1) 100%);
-   
-}
-#join{
-    display: block;
-    background: linear-gradient(325deg, rgba(39, 107, 130, 1) 0%, rgba(49, 84, 129, 1) 100%);
-    padding:10px 72px;
-    margin-top: 10px;
-}
-.centered-form{
-    padding: 30px;
-    background: white;
-    border-radius:20px; 
 }
 
-.centered-form .name{
+#join {
+    display: block;
+    background: linear-gradient(325deg, rgba(39, 107, 130, 1) 0%, rgba(49, 84, 129, 1) 100%);
+    padding: 10px 72px;
+    margin-top: 10px;
+}
+
+.centered-form {
+    padding: 30px;
+    background: white;
+    border-radius: 20px;
+}
+
+.centered-form .name {
     background-color: #E6E6FA;
     height: 40px;
 }
-
+.name-list ol{
+    padding: 5px;
+}
+.name-list ol li{
+    border-radius:15px; 
+    background: #E6E6FA;
+    padding: 5px;
+    color: black;
+    margin-top: 2px;
+}
 
 @media (max-width: 600px) {
     * {
